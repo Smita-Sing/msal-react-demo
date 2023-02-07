@@ -21,7 +21,7 @@ export const Profile = () => {
         }
         if(result){
             const {accessToken}= result;
-            fetchData('https://graph.microsoft.com/User.Read', accessToken)
+            fetchData('https://graph.microsoft.com/v1.0/me', accessToken)
             .then(response=>setGraphData(response))
             .catch(error=>console.log(error));
         }
@@ -29,7 +29,7 @@ export const Profile = () => {
 
     return (
         <>
-            {!graphData? <ProfileData graphData={graphData} /> :null}
+            {graphData? <ProfileData graphData={graphData} /> :null}
         </>
     )
 }

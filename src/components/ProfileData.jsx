@@ -13,11 +13,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 export const ProfileData = ({ graphData }) => {
     return (
         <List className="profileData">
-            <NameListItem name={graphData.displayName} />
+            <NameListItem name={graphData.givenName} />
             <JobTitleListItem jobTitle={graphData.jobTitle} />
-            <MailListItem mail={graphData.mail} />
-            <PhoneListItem phone={graphData.businessPhones[0]} />
-            <LocationListItem location={graphData.officeLocation} />
+            <MailListItem mail={graphData.userPrincipalName} />
+            {/* <PhoneListItem phone={graphData.businessPhones[0]} /> */}
+            <LocationListItem location={graphData.id} />
         </List>
     );
 };
@@ -55,16 +55,16 @@ const MailListItem = ({ mail }) => (
     </ListItem>
 );
 
-const PhoneListItem = ({ phone }) => (
-    <ListItem>
-        <ListItemAvatar>
-            <Avatar>
-                <PhoneIcon />
-            </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Phone" secondary={phone} />
-    </ListItem>
-);
+// const PhoneListItem = ({ phone }) => (
+//     <ListItem>
+//         <ListItemAvatar>
+//             <Avatar>
+//                 <PhoneIcon />
+//             </Avatar>
+//         </ListItemAvatar>
+//         <ListItemText primary="Phone" secondary={phone} />
+//     </ListItem>
+// );
 
 const LocationListItem = ({ location }) => (
     <ListItem>
